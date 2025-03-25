@@ -1,0 +1,332 @@
+/* 工作经验部分 */
+.experience-section, .projects-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.experience-section {
+    background-color: #f0f2f5;
+}
+
+.projects-section {
+    background-color: var(--background-color);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding-top: 40px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 40px;
+}
+
+.timeline-item:nth-child(odd)::before,
+.timeline-item:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    top: 45px;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd)::before {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -10px;
+}
+
+.timeline-item:nth-child(odd)::after,
+.timeline-item:nth-child(even)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    top: 45px;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: 30px;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent var(--card-background);
+}
+
+.timeline-item:nth-child(even)::after {
+    left: 25px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent var(--card-background) transparent transparent;
+}
+
+.experience-card, .project-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 25px;
+    transition: var(--transition);
+}
+
+.experience-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-header, .project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    transition: var(--transition);
+}
+
+.company-logo:hover {
+    transform: scale(1.1);
+}
+
+.experience-details, .project-details {
+    flex: 1;
+}
+
+.company-name, .project-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.job-title, .project-role {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.experience-date, .project-date {
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.experience-description, .project-description {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.responsibility-list, .tech-stack-list {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.responsibility-item, .tech-item {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.responsibility-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.tech-stack {
+    margin-top: 15px;
+}
+
+.tech-tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.tech-tag:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.read-more-btn:hover {
+    color: var(--secondary-color);
+}
+
+.read-more-btn i {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* 暗色模式样式 */
+body.dark-mode .experience-section {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .projects-section {
+    background-color: #111827;
+}
+
+body.dark-mode .experience-card,
+body.dark-mode .project-card {
+    background-color: var(--dark-card);
+}
+
+body.dark-mode .company-name,
+body.dark-mode .project-name {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .job-title,
+body.dark-mode .project-role,
+body.dark-mode .experience-date,
+body.dark-mode .project-date,
+body.dark-mode .experience-description,
+body.dark-mode .project-description,
+body.dark-mode .responsibility-item,
+body.dark-mode .tech-item {
+    color: var(--dark-text);
+}
+
+body.dark-mode .read-more-btn {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .timeline-item:nth-child(odd)::after {
+    border-color: transparent transparent transparent var(--dark-card);
+}
+
+body.dark-mode .timeline-item:nth-child(even)::after {
+    border-color: transparent var(--dark-card) transparent transparent;
+}
+
+/* 响应式样式 */
+@media (max-width: 992px) {
+    .timeline::before {
+        left: 40px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        padding-left: 80px;
+        padding-right: 0;
+    }
+    
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: 30px;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 65px;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent var(--card-background) transparent transparent;
+    }
+    
+    body.dark-mode .timeline-item:nth-child(odd)::after, 
+    body.dark-mode .timeline-item:nth-child(even)::after {
+        border-color: transparent var(--dark-card) transparent transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-header, .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .company-logo {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+    
+    .tech-tag {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: 10px;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 45px;
+    }
+    
+    .company-name, .project-name {
+        font-size: 18px;
+    }
+} 

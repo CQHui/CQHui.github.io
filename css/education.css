@@ -1,0 +1,117 @@
+/* 教育经历部分 */
+.education-section {
+    padding: 80px 0;
+    background-color: #f0f2f5;
+}
+
+.education-card {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.education-year {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: var(--secondary-color);
+    color: #333;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.education-school {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.education-degree {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.education-description {
+    font-size: 15px;
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.achievement-list {
+    margin-top: 15px;
+    list-style-type: none;
+}
+
+.achievement-item {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+/* 暗色模式样式 */
+body.dark-mode .education-section {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .education-school {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .education-degree,
+body.dark-mode .education-description,
+body.dark-mode .achievement-item {
+    color: var(--dark-text);
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .education-school {
+        font-size: 20px;
+    }
+    
+    .education-degree {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .education-card {
+        padding-left: 20px;
+    }
+    
+    .education-school {
+        font-size: 18px;
+    }
+    
+    .achievement-item {
+        font-size: 14px;
+        padding-left: 20px;
+    }
+} 

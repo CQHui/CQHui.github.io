@@ -1,0 +1,57 @@
+/* 修复背景渐变问题 */
+html, body, *:not(.progress-bar):not(.btn-primary) {
+    background-image: none !important;
+}
+
+body, html {
+    background-color: #ffffff !important;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body:before, body:after,
+div:before, div:after,
+section:before, section:after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.hero-section {
+    background-color: var(--background-color) !important;
+    background-image: none !important;
+    position: relative;
+    z-index: 1;
+}
+
+#home-section, #education-section, #skills-section, 
+#experience-section, #projects-section, #about-section {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* 额外的覆盖 */
+[style*="background"], [style*="gradient"] {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+main {
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* 强制移除渐变遮罩层 */
+body::before {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+} 

@@ -1,298 +1,3074 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈启辉 - 个人简历</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e4b9c; /* 调整主题色为更深的蓝色 */
+            --primary-light: #4677c7;
+            --primary-dark: #0d2f6b;
+            --secondary-color: #10b981;
+            --secondary-light: #34d399;
+            --secondary-dark: #059669;
+            --accent-color: #f97316;
+            --text-dark: #202020;
+            --text-light: #f9fafb;
+            --text-muted: #6b7280;
+            --background-light: #ffffff;
+            --background-dark: #111827;
+            --card-light: #ffffff;
+            --card-dark: #1f2937;
+            --border-light: #e5e7eb;
+            --border-dark: #374151;
+            --shadow-light: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-dark: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --gradient-light: linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%);
+            --gradient-dark: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+        }
 
-  
-  <title>Hexo BLOG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo BLOG">
-<meta property="og:url" content="https://cqhui.github.io/index.html">
-<meta property="og:site_name" content="Hexo BLOG">
-<meta property="og:locale" content="zh">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo BLOG">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo BLOG" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+            background-color: rgba(30, 75, 156, 0.1);
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 18px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .control-btn:hover {
+            background-color: rgba(30, 75, 156, 0.1);
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* 调整语言切换按钮 */
+        .lang-toggle {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .globe-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            background: none;
+        }
+
+        .globe-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .lang-option {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .lang-option:hover {
+            background-color: rgba(30, 75, 156, 0.1);
+        }
+
+        .lang-option.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background-color: white;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .nav-links.active {
+                max-height: 400px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                width: 100%;
+                border-radius: 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .menu-toggle {
+                display: block;
+                margin-right: 15px;
+            }
+            
+            .navbar .container {
+                justify-content: space-between;
+            }
+        }
+
+        /* 主页横幅 */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--background-color);
+            background-image: url('https://images.unsplash.com/photo-1624621644761-42051dca643e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 60%, rgba(255,255,255,0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 3;
+            max-width: 650px;
+            padding-right: 50px;
+        }
+
+        .hero-name {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            color: var(--primary-color);
+        }
+
+        .hero-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #3f489e;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(51, 59, 140, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .profile-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: visible;
+        }
+
+        .profile-image {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4a5fc1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(51, 59, 140, 0.3);
+            z-index: 2;
+        }
+
+        .profile-image i {
+            font-size: 150px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 装饰圆点 */
+        .decoration-dot {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(247, 182, 51, 0.3);
+        }
+
+        .dot-1 {
+            width: 80px;
+            height: 80px;
+            top: 5%;
+            right: 0;
+            opacity: 0.8;
+        }
+
+        .dot-2 {
+            width: 40px;
+            height: 40px;
+            bottom: 15%;
+            right: 5%;
+            opacity: 0.6;
+        }
+
+        .dot-3 {
+            width: 60px;
+            height: 60px;
+            bottom: 10%;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        /* 社交图标样式 */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(51, 59, 140, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            transform: translateY(-5px);
+        }
+
+        /* 向下滚动指示器 */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .scroll-down i {
+            font-size: 24px;
+        }
+
+        .scroll-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* 章节标题样式 */
+        .section-title {
+            position: relative;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            height: 4px;
+            width: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* 基本信息速览部分 */
+        .quick-info {
+            padding: 80px 0;
+            background-color: #f0f2f5;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .info-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background-color: rgba(51, 59, 140, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .info-content p {
+            font-size: 15px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* 暗色模式 */
+        .dark-mode {
+            --text-color: #e6e6e6;
+            --background-color: #1a1a2e;
+            --card-background: #16213e;
+        }
+
+        .dark-mode .navbar {
+            background-color: rgba(22, 33, 62, 0.95);
+        }
+
+        .dark-mode .nav-link {
+            color: var(--dark-text);
+        }
+
+        .dark-mode .nav-link:hover, 
+        .dark-mode .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .control-btn {
+            color: var(--dark-text);
+        }
+
+        .dark-mode .hero-name,
+        .dark-mode .hero-title {
+            color: var(--secondary-color);
+        }
+
+        .dark-mode .btn-outline {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .dark-mode .scroll-down {
+            color: var(--secondary-color);
+        }
+
+        .dark-mode .section-title {
+            color: var(--secondary-color);
+        }
+
+        .dark-mode .info-content h3 {
+            color: var(--secondary-color);
+        }
+
+        /* 媒体查询 */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                gap: 50px;
+                padding: 50px 20px;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .hero-name {
+                font-size: 48px;
+            }
+            
+            .hero-image {
+                justify-content: center;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .nav-list.active {
+                max-height: 400px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-item {
+                padding: 15px 20px;
+                width: 100%;
+                border-radius: 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-name {
+                font-size: 36px;
+            }
+            
+            .hero-title {
+                font-size: 20px;
+            }
+            
+            .profile-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .profile-image {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .profile-accent {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 教育部分样式 */
+        .education-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .education-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-logo {
+            flex: 0 0 100px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-right: 25px;
+        }
+
+        .education-logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .education-info {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .education-year {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: rgba(51, 59, 140, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .education-school {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .education-degree {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .education-description {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .achievement-list {
+            padding-left: 20px;
+        }
+
+        .achievement-item {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+
+        .achievement-item::before {
+            content: '•';
+            position: absolute;
+            left: -15px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 项目经历部分 */
+        .projects-section {
+            padding: 80px 0;
+            background-color: #f0f2f5;
+        }
+
+        .projects-grid {
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .project-period {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .project-content {
+            margin-top: 10px;
+        }
+
+        .project-description {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-technologies {
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background-color: rgba(51, 59, 140, 0.1);
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+
+        .project-achievements {
+            padding-left: 20px;
+        }
+
+        .project-achievement {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+
+        .project-achievement::before {
+            content: '•';
+            position: absolute;
+            left: -15px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 个人评价部分 */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+
+        .about-content {
+            margin-top: 30px;
+        }
+
+        .about-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .about-subtitle {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .about-subtitle:first-child {
+            margin-top: 0;
+        }
+
+        .about-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .strengths-grid, .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .strength-item, .interest-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: rgba(51, 59, 140, 0.03);
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .strength-item:hover, .interest-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(51, 59, 140, 0.06);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .strength-icon, .interest-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(51, 59, 140, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .strength-content, .interest-content {
+            flex: 1;
+        }
+
+        .strength-content h4, .interest-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .strength-content p, .interest-content p {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* 暗色模式覆盖 */
+        .dark-mode .about-card {
+            background-color: var(--dark-card);
+        }
+
+        .dark-mode .about-subtitle {
+            color: var(--secondary-color);
+        }
+
+        .dark-mode .strength-item, .dark-mode .interest-item {
+            background-color: rgba(247, 182, 51, 0.05);
+        }
+
+        .dark-mode .strength-item:hover, .dark-mode .interest-item:hover {
+            background-color: rgba(247, 182, 51, 0.08);
+        }
+
+        .dark-mode .strength-icon, .dark-mode .interest-icon {
+            background-color: rgba(247, 182, 51, 0.1);
+            color: var(--secondary-color);
+        }
+
+        .dark-mode .strength-content h4, .dark-mode .interest-content h4 {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .strengths-grid, .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skills-section {
+            padding: 80px 0;
+            background-color: #f0f2f5;
+        }
+
+        .skills-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .skill-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4a5fc1 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .skill-content {
+            flex: 1;
+        }
+        
+        .skill-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skill-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .skill-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Dark mode adjustments */
+        .dark-mode .skill-icon {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #e89b22 100%);
+            color: #333;
+        }
+        
+        .dark-mode .skill-title {
+            color: var(--secondary-color);
+        }
+        
+        .dark-mode .skill-list li:before {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .skills-card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .skills-card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 工作经历部分 */
+        .experience-section {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+
+        .experience-timeline {
+            margin-top: 30px;
+        }
+
+        .experience-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-info-wrapper {
+            flex: 1;
+            padding-right: 25px;
+        }
+
+        .experience-header {
+            margin-bottom: 20px;
+        }
+
+        .company-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: rgba(51, 59, 140, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .company-logo img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+
+        /* 增强卡片样式 */
+        .project-card, .education-card, .skill-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .project-card:hover, .education-card:hover, .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* 为工作经历添加时间轴样式 */
+        .experience-card {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-light);
+        }
+
+        .experience-card::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 2px solid var(--background-light);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        /* 改进项目卡片样式 */
+        .project-header {
+            background: var(--gradient-light);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .project-period {
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-title {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+
+        /* 改进技能卡片 */
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .skill-icon {
+            background: var(--gradient-light);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1);
+            background: var(--gradient-dark);
+            color: white;
+        }
+
+        .tech-tag {
+            background: #eef2ff;
+            color: #4f46e5;
+            border-radius: 15px;
+            padding: 3px 10px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            background: #4f46e5;
+            color: white;
+        }
+
+        /* 改进导航栏样式 */
+        .navbar {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 改进按钮样式 */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        /* 改进社交图标 */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--primary-light);
+        }
+
+        /* 改进个人评价部分 */
+        .about-card {
+            background: var(--card-light);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-subtitle {
+            color: var(--primary-dark);
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* 添加滚动动画 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 为暗色模式做优化 */
+        .dark-theme .project-header {
+            background: var(--gradient-dark);
+        }
+
+        .dark-theme .skill-icon {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .dark-theme .tech-tag {
+            background: #312e81;
+            color: #c7d2fe;
+        }
+
+        .dark-theme .tech-tag:hover {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .dark-theme .navbar {
+            background-color: rgba(17, 24, 39, 0.8);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+
+        .dark-theme .experience-card::after {
+            border: 2px solid var(--background-dark);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.4);
+        }
+
+        @media print {
+            .project-card, .education-card, .skill-card, .about-card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+            
+            .navbar, .theme-toggle, .lang-toggle, .social-icons, .hero-cta {
+                display: none !important;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            
+            body {
+                font-size: 12pt !important;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .experience-card, .project-card, .education-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* 添加技能进度条样式 */
+        .skill-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+            transition: width 1.5s ease;
+            width: 0;
+        }
+        
+        .dark-theme .skill-progress-bar {
+            background: #374151;
+        }
+        
+        .skill-list li {
+            margin-bottom: 12px;
+        }
+        
+        /* 添加"回到顶部"按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* 移除标题下的绿色下划线 */
+        .section-title h2::after {
+            display: none;
+        }
+
+        /* 更新卡片样式，使整体呈现卡片风格 */
+        .education-section, .skills-section, .experience-section, .projects-section, .about-section {
+            background: var(--card-light);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dark-theme .education-section, 
+        .dark-theme .skills-section, 
+        .dark-theme .experience-section, 
+        .dark-theme .projects-section, 
+        .dark-theme .about-section {
+            background: var(--card-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 调整教育经历中的大学logo位置 */
+        .education-card {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .education-logo {
+            flex: 0 0 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .education-info {
+            flex: 1;
+        }
+
+        /* 改进工作经历时间轴样式 */
+        .experience-card {
+            position: relative;
+            padding-left: 0;
+            margin-bottom: 30px;
+            border-left: none;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .experience-card {
+            background: #1f2937;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-card::before,
+        .experience-card::after {
+            display: none;
+        }
+
+        /* 增大工作经历标题字体 */
+        .experience-card strong {
+            font-size: 18px;
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 移除项目标题渐变背景 */
+        .project-header {
+            background: transparent;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* 优化技术栈样式 */
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #f0f2ff;
+            color: #3b54d3;
+            border-radius: 8px;
+            padding: 5px 12px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(59, 84, 211, 0.1);
+        }
+
+        .tech-tag:hover {
+            background: #3b54d3;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .dark-theme .tech-tag {
+            background: #242f4d;
+            color: #a7bcff;
+            border: 1px solid rgba(167, 188, 255, 0.1);
+        }
+
+        .dark-theme .tech-tag:hover {
+            background: #3b54d3;
+            color: white;
+        }
+
+        /* 项目卡片样式优化 */
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            border: 1px solid #eaecef;
+        }
+
+        .dark-theme .project-card {
+            background: #1f2937;
+            border: 1px solid #374151;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 项目日期标签 */
+        .project-period {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(30, 58, 138, 0.2);
+        }
+
+        /* 整体布局调整 */
+        .container {
+            padding: 0 20px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            position: relative;
+            font-weight: 700;
+        }
+
+        /* 导航栏加深阴影 */
+        .navbar {
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 技能卡片布局优化 */
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaecef;
+        }
+
+        .dark-theme .skill-card {
+            background: #1f2937;
+            border: 1px solid #374151;
+        }
+
+        /* 添加垂直时间轴样式 */
+        .experience-timeline {
+            position: relative;
+            margin: 30px auto;
+            max-width: 900px;
+        }
+
+        .timeline-center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background-color: #e0e0e0;
+            transform: translateX(-50%);
+        }
+
+        .experience-card {
+            position: relative;
+            margin-bottom: 30px; /* 减少卡片间的间距 */
+            width: 45%; /* 增加卡片宽度 */
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        /* 设置公司名称样式 */
+        .company-name {
+            color: #0047AB;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .company-period {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .dark-theme .company-name {
+            color: #60a5fa;
+        }
+
+        .dark-theme .company-period {
+            color: #9ca3af;
+        }
+
+        /* 调整连接点样式 */
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid;
+            top: 20px;
+            z-index: 2;
+        }
+
+        .experience-card:nth-child(odd) .timeline-dot {
+            right: -9px;
+        }
+
+        .experience-card:nth-child(even) .timeline-dot {
+            left: -9px;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            top: 20px;
+            height: 2px;
+            background-color: #ccc;
+            width: 25px;
+        }
+
+        .experience-card:nth-child(odd) .timeline-connector {
+            right: -25px;
+        }
+
+        .experience-card:nth-child(even) .timeline-connector {
+            left: -25px;
+        }
+
+        /* 定义不同工作经历的颜色 */
+        .experience-card:nth-child(1) .timeline-dot {
+            border-color: #4CAF50;
+        }
+
+        .experience-card:nth-child(2) .timeline-dot {
+            border-color: #9C27B0;
+        }
+
+        .experience-card:nth-child(3) .timeline-dot {
+            border-color: #FF5722;
+        }
+
+        .experience-card:nth-child(4) .timeline-dot {
+            border-color: #2196F3;
+        }
+
+        /* 内容卡片样式 */
+        .timeline-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid #eaecef;
+            transition: all 0.3s ease;
+        }
+
+        .dark-theme .timeline-content {
+            background: #1f2937;
+            border: 1px solid #374151;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-center {
+                left: 20px;
+            }
+            
+            .experience-card {
+                width: calc(100% - 50px);
+                margin-left: 40px;
+                margin-right: 0;
+            }
+            
+            .experience-card:nth-child(odd) .timeline-dot,
+            .experience-card:nth-child(even) .timeline-dot {
+                left: -32px;
+            }
+            
+            .experience-card:nth-child(odd) .timeline-connector,
+            .experience-card:nth-child(even) .timeline-connector {
+                left: -20px;
+                width: 20px;
+            }
+        }
+
+        .experience-card:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .experience-card:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    </style>
 </head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo BLOG</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">记录每一个坑</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cqhui.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-alfred制作oss图床(python)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/20/alfred制作oss图床(python)/" class="article-date">
-  <time datetime="2018-07-20T02:00:37.046Z" itemprop="datePublished">2018-07-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/20/alfred制作oss图床(python)/">alfred实现oss图床（python）</a>
-    </h1>
-  
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">CQH</div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active lang-zh">首页</a>
+                <a href="#home" class="nav-link active lang-en" style="display: none;">Home</a>
+                
+                <a href="#education" class="nav-link lang-zh">教育经历</a>
+                <a href="#education" class="nav-link lang-en" style="display: none;">Education</a>
+                
+                <a href="#skills" class="nav-link lang-zh">技能清单</a>
+                <a href="#skills" class="nav-link lang-en" style="display: none;">Skills</a>
+                
+                <a href="#experience" class="nav-link lang-zh">工作经历</a>
+                <a href="#experience" class="nav-link lang-en" style="display: none;">Work Experience</a>
+                
+                <a href="#projects" class="nav-link lang-zh">项目经历</a>
+                <a href="#projects" class="nav-link lang-en" style="display: none;">Projects</a>
+                
+                <a href="#about" class="nav-link lang-zh">个人评价</a>
+                <a href="#about" class="nav-link lang-en" style="display: none;">About Me</a>
+            </nav>
+            <div class="nav-controls">
+                <div class="lang-toggle" id="langToggle">
+                    <div class="globe-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="language-dropdown" id="langDropdown">
+                        <div class="lang-option active" id="zhBtn">中文</div>
+                        <div class="lang-option" id="enBtn">English</div>
+                    </div>
+                </div>
+                <a href="https://qihui-resume.oss-cn-shanghai.aliyuncs.com/%E9%99%88%E5%90%AF%E8%BE%89--Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88.pdf" class="control-btn" id="downloadBtn" title="下载简历" download>
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </header>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><h3 id="为什么写图床工具"><a href="#为什么写图床工具" class="headerlink" title="为什么写图床工具"></a>为什么写图床工具</h3><p>很多开发者都喜欢用markdown写文本，博客。对于图片的处理有放在本地一起的，有放在云端的图片服务器，如微博图床，七牛，阿里oss等。个人不喜欢放在微博图床，更建议对象存储在自建图床中</p>
-<h3 id="什么是alfred"><a href="#什么是alfred" class="headerlink" title="什么是alfred"></a>什么是alfred</h3><p>Alfred，一款macos的效率工具，是一个让你可以丢掉鼠标的神器（其实是我买了macbookpro之后买不起magic mouse了）。这款工具里有个workflow（付费版）功能可以提供开发者自己开发一系列的工作流。本文就是基于这个工具实现一键上传图片</p>
-<h3 id="为什么自己开发"><a href="#为什么自己开发" class="headerlink" title="为什么自己开发"></a>为什么自己开发</h3><p>我其实找过很多工具，虽然网上也有类似应用，比如ipic(部分功能付费)。不想折腾的同学可以用这款工具。</p>
-<div align="center"><img width="90%" height="90%" src="https://qihui-picture.oss-cn-hangzhou.aliyuncs.com/2018-07-20/1532053944.png"></div>
+    <!-- 主内容区 -->
+    <main>
+        <!-- 主页横幅部分 -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <!-- 左侧文本 -->
+                <div class="hero-text">
+                    <!-- 中文内容 -->
+                    <div class="lang-zh">
+                        <h1 class="hero-name">陈启辉</h1>
+                        <h3 class="hero-title">Java高级开发工程师</h3>
+                        <p class="hero-description">男｜1995｜杭州余杭区｜党员 | 手机/微信：13588307742 ｜ 邮箱：zjhzcqh@163.com｜<a href="https://github.com/CQHui" target="_blank">Github</a></p>
+                        
+                        <div class="hero-cta">
+                            <a href="#experience" class="btn btn-primary">
+                                <i class="fas fa-briefcase"></i>
+                                工作经历
+                            </a>
+                            <a href="#projects" class="btn btn-outline">
+                                <i class="fas fa-code"></i>
+                                项目经验
+                            </a>
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="https://github.com/CQHui" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:zjhzcqh@163.com" class="social-icon">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="tel:13588307742" class="social-icon">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文内容 -->
+                    <div class="lang-en" style="display: none;">
+                        <h1 class="hero-name">Chen Qihui</h1>
+                        <h3 class="hero-title">Senior Java Developer</h3>
+                        <p class="hero-description">Male | 1995 | Yuhang District, Hangzhou | CCP Member | Phone/WeChat: 13588307742 | Email: zjhzcqh@163.com | <a href="https://github.com/CQHui" target="_blank">Github</a></p>
+                        
+                        <div class="hero-cta">
+                            <a href="#experience" class="btn btn-primary">
+                                <i class="fas fa-briefcase"></i>
+                                Work Experience
+                            </a>
+                            <a href="#projects" class="btn btn-outline">
+                                <i class="fas fa-code"></i>
+                                Projects
+                            </a>
+                        </div>
+                        
+                        <div class="social-icons">
+                            <a href="https://github.com/CQHui" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:zjhzcqh@163.com" class="social-icon">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="tel:13588307742" class="social-icon">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧图片 -->
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <!-- 装饰圆点 -->
+                        <div class="decoration-dot dot-1"></div>
+                        <div class="decoration-dot dot-2"></div>
+                        <div class="decoration-dot dot-3"></div>
+                        
+                        <!-- 使用Font Awesome图标代替真实照片 -->
+                        <div class="profile-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 滚动指示器 -->
+            <div class="scroll-down" id="scrollDown">
+                <i class="fas fa-chevron-down"></i>
+                <div class="scroll-text lang-zh">向下滚动</div>
+                <div class="scroll-text lang-en" style="display: none;">Scroll Down</div>
+            </div>
+        </section>
 
-<p>这款工具本人也是用过一段时间，微博图床免费，但是阿里oss或者七牛都是付费版的。既然如此，那么我就自己开发一款吧（还不是因为穷）<br>ps. 本文涉及到的图片都是私人图床上的图片</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="最终效果图"><a href="#最终效果图" class="headerlink" title="最终效果图"></a>最终效果图</h3><p>复制一张图片，调用alfred，输入oss命令稍等一小会儿，会显示url和md两种返回格式，点击url或者md便可以获得对应地址在剪切板中，粘贴，所见即所得</p>
-<div align="center"><img width="90%" height="90%" src="https://qihui-picture.oss-cn-hangzhou.aliyuncs.com/2018-07-20/%E5%BD%95%E5%B1%8F.gif"></div>
+        <!-- 基本信息速览部分 -->
+        <section class="quick-info">
+            <div class="container">
+                <div class="info-grid">
+                    <!-- 基本信息卡片 -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 class="lang-zh">教育背景</h3>
+                            <h3 class="lang-en" style="display: none;">Education</h3>
+                            <p class="lang-zh">浙江科技大学 | 信息与计算科学</p>
+                            <p class="lang-en" style="display: none;">Zhejiang University of Technology | Information and Computing Science</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 class="lang-zh">技术栈</h3>
+                            <h3 class="lang-en" style="display: none;">Tech Stack</h3>
+                            <p class="lang-zh">Java, Spring, MySQL, Redis, 微服务</p>
+                            <p class="lang-en" style="display: none;">Java, Spring, MySQL, Redis, Microservices</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 class="lang-zh">工作经验</h3>
+                            <h3 class="lang-en" style="display: none;">Experience</h3>
+                            <p class="lang-zh">6+ 年开发经验</p>
+                            <p class="lang-en" style="display: none;">6+ Years Development</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 class="lang-zh">项目</h3>
+                            <h3 class="lang-en" style="display: none;">Projects</h3>
+                            <p class="lang-zh">全球化系统, 数据平台, 协作工具</p>
+                            <p class="lang-en" style="display: none;">Global Systems, Data Platforms, Collaboration Tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- 教育经历部分 -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title lang-zh">教育经历</h2>
+                <h2 class="section-title lang-en" style="display: none;">Education</h2>
+                
+                <div class="education-content">
+                    <!-- 中文内容 -->
+                    <div class="lang-zh">
+                        <div class="education-card animate-on-scroll">
+                            <div class="education-logo">
+                                <img src="https://img1.baidu.com/it/u=2786713382,1598714279&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="浙江科技大学">
+                            </div>
+                            <div class="education-info">
+                                <div class="education-year">2013.09 - 2017.06</div>
+                                <h3 class="education-school">浙江科技大学</h3>
+                                <div class="education-degree">理学院 | 信息与计算科学 | 本科</div>
+                                <p class="education-description">主修数据结构、算法、高等代数、网络基础、操作系统等计算机基础课程。</p>
+                                <ul class="achievement-list">
+                                    <li class="achievement-item">在校综合测评成绩专业前15%</li>
+                                    <li class="achievement-item">多次获得奖学金</li>
+                                    <li class="achievement-item">参与学生会、支教等校园活动</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文内容 -->
+                    <div class="lang-en" style="display: none;">
+                        <div class="education-card animate-on-scroll">
+                            <div class="education-logo">
+                                <img src="https://www.zstu.edu.cn/_upload/tpl/00/0e/14/template14/images/logo.png" alt="Zhejiang University of Technology">
+                            </div>
+                            <div class="education-info">
+                                <div class="education-year">Sep 2013 - Jun 2017</div>
+                                <h3 class="education-school">Zhejiang University of Technology</h3>
+                                <div class="education-degree">School of Science | Information and Computing Science | Bachelor's Degree</div>
+                                <p class="education-description">Major courses included Mathematical Analysis, Advanced Algebra, Data Structures and Algorithms, Data Mining, Database Principles, Probability Theory and Mathematical Statistics.</p>
+                                <ul class="achievement-list">
+                                    <li class="achievement-item">Ranked in the top 15% of comprehensive evaluation scores</li>
+                                    <li class="achievement-item">Received multiple scholarships</li>
+                                    <li class="achievement-item">Participated in student union and volunteer teaching activities</li>
+                                    <li class="achievement-item">Participated in multiple programming competitions with excellent results</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>你需要一台操作系统为macos的电脑</li>
-<li>你还需要安装付(po)费(jie)版的alfred</li>
-<li>你少不了自己的阿里云oss服务</li>
-<li>因为脚本是python写的，所以要有python3环境</li>
-<li>python3依赖oss2和pyobjc包</li>
-</ul>
-<h3 id="上码"><a href="#上码" class="headerlink" title="上码"></a>上码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Author: chenqihui</span></span><br><span class="line">query = <span class="string">"&#123;query&#125;"</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> oss2</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> AppKit <span class="keyword">import</span> NSPasteboard, NSPasteboardTypePNG, NSPasteboardTypeTIFF</span><br><span class="line"></span><br><span class="line">access_key_id = <span class="string">'&lt;yourAccessKeyId&gt;'</span></span><br><span class="line">access_key_secret = <span class="string">'&lt;yourAccessKeySecret&gt;'</span></span><br><span class="line">bucket_name = <span class="string">'&lt;yourBucketName&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_paste_img_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    将剪切板数据保存到本地文件并返回文件路径</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    pb = NSPasteboard.generalPasteboard()  <span class="comment"># 获取当前系统剪切板数据</span></span><br><span class="line">    data_type = pb.types()  <span class="comment"># 获取剪切c板数据的格式类型</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据剪切板数据类型进行处理</span></span><br><span class="line">    <span class="keyword">if</span> NSPasteboardTypePNG <span class="keyword">in</span> data_type:          <span class="comment"># PNG处理</span></span><br><span class="line">        data = pb.dataForType_(NSPasteboardTypePNG)</span><br><span class="line">        filename = <span class="string">'%s.png'</span> % int(time.time())</span><br><span class="line">        filepath = <span class="string">'/tmp/%s'</span> % filename            <span class="comment"># 保存文件的路径</span></span><br><span class="line">        ret = data.writeToFile_atomically_(filepath, <span class="keyword">False</span>)    <span class="comment"># 将剪切板数据保存为文件</span></span><br><span class="line">        <span class="keyword">if</span> ret:   <span class="comment"># 判断文件写入是否成功</span></span><br><span class="line">            <span class="keyword">return</span> filepath</span><br><span class="line">    <span class="keyword">elif</span> NSPasteboardTypeTIFF <span class="keyword">in</span> data_type:         <span class="comment">#TIFF处理： 一般剪切板里都是这种</span></span><br><span class="line">        <span class="comment"># tiff</span></span><br><span class="line">        data = pb.dataForType_(NSPasteboardTypeTIFF)</span><br><span class="line">        filename = <span class="string">'HELLO_TIFF.tiff'</span></span><br><span class="line">        filepath = <span class="string">'/tmp/%s'</span> % filename</span><br><span class="line">        ret = data.writeToFile_atomically_(filepath, <span class="keyword">False</span>)</span><br><span class="line">        <span class="keyword">if</span> ret:</span><br><span class="line">            <span class="keyword">return</span> filepath</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    auth = oss2.Auth(access_key_id, access_key_secret)</span><br><span class="line">    <span class="comment"># Endpoint以杭州为例，其它Region请按实际情况填写。</span></span><br><span class="line">    bucket = oss2.Bucket(auth, <span class="string">'http://oss-cn-hangzhou.aliyuncs.com'</span>, bucket_name)</span><br><span class="line">    file_name = get_paste_img_file()</span><br><span class="line">    key_name = file_name[file_name.rfind(<span class="string">'/'</span>):]</span><br><span class="line">    date = time.strftime(<span class="string">"%Y-%m-%d"</span>, time.localtime())</span><br><span class="line">    key = date + key_name</span><br><span class="line">    result = bucket.put_object_from_file(key, file_name)</span><br><span class="line">    url = result.resp.response.url</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">'items'</span> : [</span><br><span class="line">            &#123;<span class="string">'title'</span> : <span class="string">'url'</span>, <span class="string">'arg'</span>: url,  <span class="string">"icon"</span>:</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">'type'</span>: <span class="string">'png'</span>,</span><br><span class="line">                    <span class="string">'path'</span>: <span class="string">'icon.png'</span></span><br><span class="line">                &#125;</span><br><span class="line">             &#125;,</span><br><span class="line">            &#123;<span class="string">'title'</span>: <span class="string">'md'</span>, <span class="string">'arg'</span>: <span class="string">'![](%s)'</span> % url, <span class="string">'icon'</span>:</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">'type'</span>: <span class="string">'png'</span>,</span><br><span class="line">                    <span class="string">'path'</span>: <span class="string">'icon.png'</span></span><br><span class="line">                &#125;</span><br><span class="line">             &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">    url_result = json.dumps(data)</span><br><span class="line">    print(url_result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    upload_file()</span><br></pre></td></tr></table></figure>
-<h3 id="修改脚本里的参数"><a href="#修改脚本里的参数" class="headerlink" title="修改脚本里的参数"></a>修改脚本里的参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">access_key_id = <span class="string">'&lt;yourAccessKeyId&gt;'</span></span><br><span class="line">access_key_secret = <span class="string">'&lt;yourAccessKeySecret&gt;'</span></span><br><span class="line">bucket_name = <span class="string">'&lt;yourBucketName&gt;'</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置alfred的workflow"><a href="#配置alfred的workflow" class="headerlink" title="配置alfred的workflow"></a>配置alfred的workflow</h3><p>打开alfred，找到oss的workflow，双击下图的脚本图标</p>
-<div align="center"><img width="90%" height="90%" src="http://qihui-picture.oss-cn-hangzhou.aliyuncs.com/2018-07-20%2F1532057097.png"></div>
+        <!-- 技能清单部分 -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title lang-zh">技能清单</h2>
+                <h2 class="section-title lang-en" style="display: none;">Skills</h2>
+                
+                <div class="lang-zh">
+                    <div class="skills-card-grid">
+                        <!-- 计算机基础 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">计算机基础</h3>
+                                <ul class="skill-list">
+                                    <li>
+                                        <span>数据结构与算法</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 90%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>计算机网络基础</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 85%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>操作系统原理</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 80%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>编程思维与问题解决</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 95%;"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Java核心 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Java核心</h3>
+                                <ul class="skill-list">
+                                    <li>熟练掌握Java基础语法</li>
+                                    <li>深入理解集合、泛型、多线程</li>
+                                    <li>掌握Lambda表达式、Stream API</li>
+                                    <li>熟悉设计模式，具备JVM调优经验</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 开发工具 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">开发工具</h3>
+                                <ul class="skill-list">
+                                    <li>熟练使用Maven、Git版本控制</li>
+                                    <li>掌握Kibana、Grafana监控工具</li>
+                                    <li>熟练使用JMeter性能测试</li>
+                                    <li>熟悉阿里云平台各组件应用</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 数据库 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">数据库</h3>
+                                <ul class="skill-list">
+                                    <li>熟练使用MySQL、PostgreSQL</li>
+                                    <li>掌握Redis缓存设计</li>
+                                    <li>了解InfluxDB时序数据库</li>
+                                    <li>熟悉ClickHouse列式存储数据库</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 分布式 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">分布式</h3>
+                                <ul class="skill-list">
+                                    <li>熟悉微服务架构设计原则</li>
+                                    <li>掌握缓存架构设计</li>
+                                    <li>熟悉消息队列任务处理</li>
+                                    <li>了解限流、熔断等技术</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 大模型 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">大模型</h3>
+                                <ul class="skill-list">
+                                    <li>熟悉Spring AI、LangChain4j框架</li>
+                                    <li>了解RAG检索增强生成技术</li>
+                                    <li>掌握Function Calling技术</li>
+                                    <li>了解MCP多模型协作使用</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 其他技能 -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">其他技能</h3>
+                                <ul class="skill-list">
+                                    <li>熟悉Linux命令</li>
+                                    <li>掌握Web基础语言</li>
+                                    <li>了解Golang、Python等语法</li>
+                                    <li>熟悉Spring框架生态</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 英文内容 (隐藏) -->
+                <div class="lang-en" style="display: none;">
+                    <div class="skills-card-grid">
+                        <!-- Computer Science -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Computer Science</h3>
+                                <ul class="skill-list">
+                                    <li>Proficient in data structures and algorithms</li>
+                                    <li>Skilled in computer network fundamentals</li>
+                                    <li>Understanding of operating system principles</li>
+                                    <li>Strong problem-solving abilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Java Core -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Java Core</h3>
+                                <ul class="skill-list">
+                                    <li>Proficient in Java syntax</li>
+                                    <li>Deep understanding of collections, generics, concurrency</li>
+                                    <li>Mastery of Lambda expressions, Stream API</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Spring Framework -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Spring Framework</h3>
+                                <ul class="skill-list">
+                                    <li>Expert in Spring Core, Spring MVC</li>
+                                    <li>Familiar with Spring Boot auto-configuration</li>
+                                    <li>Proficient in Spring Cloud microservices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<p>如果你的python配置和我这儿一样的话，可以不修改。这里需要找到你的环境中的python执行指令，然后执行该脚本</p>
-<div align="center"><img width="90%" height="90%" src="http://qihui-picture.oss-cn-hangzhou.aliyuncs.com/2018-07-20%2F1532057285.png"></div>
+        <!-- 工作经历部分 - 替换为新的时间轴结构 -->
+        <div id="experience" class="experience-section">
+            <div class="section-title">
+                <h2 class="lang-zh">工作经历</h2>
+                <h2 class="lang-en" style="display: none;">Work Experience</h2>
+            </div>
+            
+            <div class="experience-timeline">
+                <!-- 中心时间轴线 -->
+                <div class="timeline-center"></div>
+                
+                <div class="lang-zh">
+                    <!-- 菜鸟 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <span class="company-name">菜鸟</span>
+                            <span class="company-period">2023.11 - 2025.02</span>
+                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <ul style="padding-left: 20px; line-height: 1.5;">
+                                        <li>负责构建全球人事系统，推动人事组织主数据模块全球化改造，支持欧美亚太地区多地业务</li>
+                                        <li>负责组织职岗主数据维护，包括日需开发，系统性能优化，提高单测，加强监控等</li>
+                                    </ul>
+                                </div>
+                                <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
+                                    alt="Cainiao Logo" 
+                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 极氪 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <span class="company-name">极氪</span>
+                            <span class="company-period">2023.05 - 2023.11</span>
+                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <ul style="padding-left: 20px; line-height: 1.5;">
+                                        <li>开发维护国内车辆数据平台，提升数据服务和诊断能力</li>
+                                        <li>设计国际化版本的数据平台方案，落地支持欧洲地区车辆数据平台</li>
+                                    </ul>
+                                </div>
+                                <img src="https://companieslogo.com/img/orig/ZK-8dcd94cb.png?t=1720244494" 
+                                    alt="Zeekr Logo" 
+                                    style="max-width:50px; max-height:50px; object-fit: contain; margin-left: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CISCO -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <span class="company-name">CISCO</span>
+                            <span class="company-period">2019.06 - 2023.01</span>
+                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <ul style="padding-left: 20px; line-height: 1.5;">
+                                        <li>参与Webex Files等多个微服务的功能迭代和稳定性维护</li>
+                                        <li>设计开发FeMO对象迁移编排系统，提供和支持内部数据迁移服务</li>
+                                    </ul>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Cisco_logo-1000px.png" 
+                                    alt="CISCO Logo" 
+                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 绿城中国 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <span class="company-name">绿城中国</span>
+                            <span class="company-period">2017.08 - 2019.05</span>
+                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <ul style="padding-left: 20px; line-height: 1.5;">
+                                        <li>负责"绿城+"APP问卷调查，报名系统等社区活动等功能开发</li>
+                                        <li>负责"智慧社区"项目大屏数据展示开发，app端用户模块，设备中心等功能开发</li>
+                                    </ul>
+                                </div>
+                                <img src="https://logo9.net/userfiles/images/9GREENTOWN.jpg" 
+                                    alt="Greentown Logo" 
+                                    style="max-width:70px; max-height:70px; object-fit: contain; margin-left: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 英文部分 -->
+                <div class="lang-en" style="display: none;">
+                    <!-- 菜鸟 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <span class="company-name">Cainiao</span>
+                            <span class="company-period">2023.11 - 2025.02</span>
+                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <ul style="padding-left: 20px; line-height: 1.5;">
+                                        <li>Responsible for building global HR system, promoting the global transformation of HR organization master data module to support business across Europe, America, and Asia-Pacific regions</li>
+                                        <li>In charge of organizational position master data maintenance, including daily development, system performance optimization, improving unit tests, and enhancing monitoring</li>
+                                    </ul>
+                                </div>
+                                <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
+                                    alt="Cainiao Logo" 
+                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 极氪 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div>
+                                <strong>Zeekr (2023.05 - 2023.11)</strong>
+                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                            <li>Developed and maintained domestic vehicle data platform, enhancing data services and diagnostic capabilities</li>
+                                            <li>Designed internationalized data platform solutions and implemented support for European vehicle data platform</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://companieslogo.com/img/orig/ZK-8dcd94cb.png?t=1720244494" 
+                                        alt="Zeekr Logo" 
+                                        style="max-width:50px; max-height:50px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CISCO -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div>
+                                <strong>CISCO (2019.06 - 2023.01)</strong>
+                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                            <li>Participated in feature iteration and stability maintenance of multiple microservices including Webex Files</li>
+                                            <li>Designed and developed FeMO object migration orchestration system, providing and supporting internal data migration services</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Cisco_logo-1000px.png" 
+                                        alt="CISCO Logo" 
+                                        style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 绿城中国 -->
+                    <div class="experience-card animate-on-scroll">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div>
+                                <strong>Greentown China (2017.08 - 2019.05)</strong>
+                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                            <li>Responsible for developing "Greentown+" APP features including surveys, registration systems, and community activities</li>
+                                            <li>Led development of data visualization for "Smart Community" project, as well as app user modules and device center features</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://logo9.net/userfiles/images/9GREENTOWN.jpg" 
+                                        alt="Greentown Logo" 
+                                        style="max-width:70px; max-height:70px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><ol>
-<li>目前只实现了oss，为什么不实现七牛的，因为呃呃呃，我还没申请七牛账号，然后阿里oss够我用了，后续有许多人需要我会继续开发哈。</li>
-<li>如上的话就是自己实现小插件的心得，分享出来供大家使用。如果有疑问可以私我微信CQHui94</li>
-</ol>
-<p>github地址：<br><a href="https://github.com/CQHui/oss_upload" target="_blank" rel="noopener">https://github.com/CQHui/oss_upload</a></p>
-<p>如果喜欢可以star下，<br>如果喜欢的不能自己，可以再悬赏下~</p>
-<div align="center"><img width="40%" height="40%" src="http://qihui-picture.oss-cn-hangzhou.aliyuncs.com/2018-07-20%2F1532057805.png"></div>
+        <!-- 项目经历部分 -->
+        <section id="projects" class="projects-section" style="padding: 80px 0; background-color: #f0f2f5;">
+            <div class="container">
+                <h2 class="section-title lang-zh">项目经历</h2>
+                <h2 class="section-title lang-en" style="display: none;">Projects</h2>
+                
+                <div class="projects-grid">
+                    <!-- 中文内容 -->
+                    <div class="lang-zh">
+                        <!-- 项目1 -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">菜鸟全球HRG工作台</h3>
+                                <span class="project-period">2023.11 - 2025.02</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>参与从0到1打造菜鸟全球人事系统，开发菜鸟人事组织主数据模块出海，建立北美，欧洲，新加坡三地数据中心，支持人事业务在美德法英西波泰马菲等多个地区顺利展开。</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">HSF</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">MetaQ</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>系统全球化改造：设计并实现业务层解耦方案，通过配置化装配Bean支持不同地区的业务需求，减少新市场开发成本，加速全球业务扩展</li>
+                                    <li>数据与消息同步机制：建立了海内外数据及消息同步机制，利用阿里DTS任务和定时脚本确保数据的一致性和及时更新，同时保障合规性</li>
+                                    <li>多时区处理策略：实现了针对逻辑时间和固定日期的多时区处理策略，数据库中使用时间戳存储，并根据用户所在时区动态转换显示，提高用户体验</li>
+                                    <li>权限框架优化：构建了高效的权限管理框架，通过切面技术进行权限判断和过滤，支持子部门权限控制，并封装成注解简化开发流程</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目2 -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">极氪车辆数据平台</h3>
+                                <span class="project-period">2023.05 - 2023.11</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>车端数据平台基于极氪车端所有上报的海量ecu数据，提供M241查询，导出，可视化等能力，以及车辆远程诊断等功能，面向于车端工程师对车辆数据查询分析。</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">ClickHouse</span>
+                                        <span class="tech-tag">Kafka</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>国际化数据平台的设计与实现：主导了数据平台的国际化方案设计，包括支持多语言响应、多时区数据查询导出及跨区域数据安全访问</li>
+                                    <li>开发并部署了车辆数据平台的欧洲版本，同时优化了数据查询和导出逻辑，显著提升了用户体验和系统效率</li>
+                                    <li>用户模块集成与系统优化：通过开发user SDK实现了吉利多用户平台的高效集成，降低了项目接入成本，并增强了用户权限管理</li>
+                                    <li>引入了多服务日志追踪ID和线程池报警策略，提高了系统的故障排查能力和稳定性，确保了系统的高性能运行</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目3 -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">Webex微服务</h3>
+                                <span class="project-period">2019.06 - 2023.01</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>Webex旨在为企业和个人提供高质量的视频会议、在线会议、屏幕共享及消息文件传递服务。</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">Kafka</span>
+                                        <span class="tech-tag">Docker</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>微服务开发与维护：负责Content Service中多个微服务（Thunder、Files、Avatar、Client-Logs、FeMO）的日常开发和维护工作，包括文件的安全扫描、转码预览、上传下载管理、头像管理和客户端日志管理等功能的设计实现</li>
+                                    <li>系统优化与安全增强：补充测试用例以提升代码覆盖率，优化系统如负责定时删除过期日志的任务设计，分页查询增强，优化卡死线程监控，处理OOM等线上异常，增强了系统的稳定性和安全性</li>
+                                    <li>数据迁移与工具开发：设计并开发了Federation Migration Orchestrator，支持微服务数据迁移工作流的编排，通过设计SDK简化了众多微服务的数据迁移流程，有效减少了团队开发时间和成本</li>
+                                    <li>线上服务运维：参与周期性的Oncall任务，确保线上服务的安全稳定运行，及时响应并解决突发问题，保障服务质量</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文内容 -->
+                    <div class="lang-en" style="display: none;">
+                        <!-- 项目1 -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">Cainiao Global HRG Workbench</h3>
+                                <span class="project-period">Nov 2023 - Feb 2025</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>Participated in building Cainiao global HR system from scratch, developed HR organization master data module for overseas expansion, established data centers in North America, Europe, and Singapore to support HR business across multiple regions.</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">HSF</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">MetaQ</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>System globalization: Designed and implemented business layer decoupling solutions, supported different regional business requirements through configurable Bean assembly, reduced development costs for new markets</li>
+                                    <li>Data and message synchronization mechanisms: Established domestic and international data and message synchronization mechanisms using Alibaba DTS tasks and scheduled scripts</li>
+                                    <li>Multi-timezone processing strategy: Implemented multi-timezone processing strategies for logical time and fixed dates with timestamp storage in database and dynamic conversion based on user's timezone</li>
+                                    <li>Permission framework optimization: Built an efficient permission management framework using aspect technology for permission judgment and filtering</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="about" class="about-section" style="padding: 80px 0; background-color: var(--background-color);">
+            <div class="container">
+                <h2 class="section-title lang-zh">个人评价</h2>
+                <h2 class="section-title lang-en" style="display: none;">About Me</h2>
+                
+                <div class="about-content">
+                    <!-- 中文内容 -->
+                    <div class="lang-zh">
+                        <div class="about-card animate-on-scroll">
+                            <h3 class="about-subtitle">持续学习</h3>
+                            <p class="about-description">自我驱动学习，热爱阅读技术书籍并整理实践demo；热爱开源，获得Github"Arctic Code Vault Contributor"，通过阿里巴巴编码规范认证。</p>
+                            
+                            <h3 class="about-subtitle">认真生活，快乐工作</h3>
+                            <p class="about-description">待人友善，喜欢旅游、爬山、游泳、电影和美食等，保持积极乐观的生活态度。对技术充满热情，勇于尝试新技术并深入钻研解决问题。</p>
+                            
+                            <div class="strengths-grid">
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="strength-content">
+                                        <h4>持续学习</h4>
+                                        <p>保持对新技术的热情，不断拓展技术广度与深度</p>
+                                    </div>
+                                </div>
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-puzzle-piece"></i></div>
+                                    <div class="strength-content">
+                                        <h4>问题解决能力</h4>
+                                        <p>擅长分析复杂问题，提出创新解决方案</p>
+                                    </div>
+                                </div>
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-users"></i></div>
+                                    <div class="strength-content">
+                                        <h4>团队协作</h4>
+                                        <p>良好的沟通能力，能有效带领团队完成项目目标</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="about-subtitle">兴趣爱好</h3>
+                            <div class="interests-grid">
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-hiking"></i></div>
+                                    <div class="interest-content">
+                                        <h4>远足徒步</h4>
+                                        <p>周末喜欢探索自然风景，放松身心</p>
+                                    </div>
+                                </div>
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-swimming-pool"></i></div>
+                                    <div class="interest-content">
+                                        <h4>游泳</h4>
+                                        <p>喜欢游泳锻炼身体，提高体质</p>
+                                    </div>
+                                </div>
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-code"></i></div>
+                                    <div class="interest-content">
+                                        <h4>开源贡献</h4>
+                                        <p>业余时间参与开源项目，分享技术心得</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文内容 -->
+                    <div class="lang-en" style="display: none;">
+                        <div class="about-card animate-on-scroll">
+                            <h3 class="about-subtitle">Continuous Learning</h3>
+                            <p class="about-description">Self-driven learning, love reading technical books and organizing practical demos; passionate about open source, received Github "Arctic Code Vault Contributor" badge, and passed Alibaba coding standards certification.</p>
+                            
+                            <h3 class="about-subtitle">Work-Life Balance</h3>
+                            <p class="about-description">Friendly and approachable, enjoy traveling, hiking, swimming, movies, and food, maintaining a positive and optimistic attitude towards life. Passionate about technology, eager to try new technologies and dig deep to solve problems.</p>
+                            
+                            <div class="strengths-grid">
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="strength-content">
+                                        <h4>Continuous Learning</h4>
+                                        <p>Maintain enthusiasm for new technologies, constantly expanding technical breadth and depth</p>
+                                    </div>
+                                </div>
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-puzzle-piece"></i></div>
+                                    <div class="strength-content">
+                                        <h4>Problem-Solving Skills</h4>
+                                        <p>Skilled at analyzing complex problems and proposing innovative solutions</p>
+                                    </div>
+                                </div>
+                                <div class="strength-item animate-on-scroll">
+                                    <div class="strength-icon"><i class="fas fa-users"></i></div>
+                                    <div class="strength-content">
+                                        <h4>Team Collaboration</h4>
+                                        <p>Good communication skills, able to effectively lead teams to complete project goals</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="about-subtitle">Interests</h3>
+                            <div class="interests-grid">
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-hiking"></i></div>
+                                    <div class="interest-content">
+                                        <h4>Hiking</h4>
+                                        <p>Like to explore natural scenery on weekends to relax</p>
+                                    </div>
+                                </div>
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-swimming-pool"></i></div>
+                                    <div class="interest-content">
+                                        <h4>Swimming</h4>
+                                        <p>Enjoy swimming to exercise and improve fitness</p>
+                                    </div>
+                                </div>
+                                <div class="interest-item animate-on-scroll">
+                                    <div class="interest-icon"><i class="fas fa-code"></i></div>
+                                    <div class="interest-content">
+                                        <h4>Open Source</h4>
+                                        <p>Participate in open source projects in spare time and share technical insights</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cqhui.github.io/2018/07/20/alfred制作oss图床(python)/" data-id="cjjtjd6ld0000y1s6hnfw4soi" class="article-share-link">Share</a>
-      
-      
+    <footer style="background-color: var(--primary-color); color: white; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <p>© 2025 陈启辉 - 个人简历</p>
+        </div>
     </footer>
-  </div>
-  
-</article>
 
+    <script>
+        // DOM元素
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        const langToggle = document.getElementById('langToggle');
+        const scrollDown = document.getElementById('scrollDown');
+        
+        // 菜单切换
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 主题切换
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        
+        // 语言切换
+        langToggle.addEventListener('click', () => {
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            zhElements.forEach(el => {
+                if (el.style.display === 'none') {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            
+            enElements.forEach(el => {
+                if (el.style.display === 'none') {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        });
+        
+        // 滚动事件
+        scrollDown.addEventListener('click', () => {
+            document.querySelector('.quick-info').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
-  
-    <article id="post-第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/16/第一篇博客/" class="article-date">
-  <time datetime="2018-07-16T13:25:20.674Z" itemprop="datePublished">2018-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h1><h2 id="留个脚印"><a href="#留个脚印" class="headerlink" title="留个脚印"></a>留个脚印</h2><ul>
-<li>记住要写博客好习惯</li>
-<li>记录踩坑好习惯</li>
-<li>享受编码的过程</li>
-<li>啊哈哈，这篇是第一篇，但不要是最后一篇</li>
-</ul>
+    <!-- 添加更多CSS变量以增强主题色系统 -->
+    <style>
+        :root {
+            --primary-color: #1e4b9c; /* 调整主题色为更深的蓝色 */
+            --primary-light: #4677c7;
+            --primary-dark: #0d2f6b;
+            --accent-color: #f97316;
+            --text-dark: #202020;
+            --text-light: #f9fafb;
+            --text-muted: #6b7280;
+            --background-light: #ffffff;
+            --card-light: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-light: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --gradient-light: linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%);
+        }
+        
+        /* 移除深色模式相关样式 */
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+        
+        /* 调整语言切换按钮样式 */
+        .lang-btn {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active, .lang-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 调整导航栏样式 */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+    </style>
 
-      
+    <!-- 添加滚动动画JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 处理滚动动画
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        
+                        // 如果是技能条，添加延迟动画
+                        const progressBars = entry.target.querySelectorAll('.skill-progress');
+                        if (progressBars.length > 0) {
+                            progressBars.forEach((bar, index) => {
+                                setTimeout(() => {
+                                    const width = bar.style.width;
+                                    bar.style.width = '0%';
+                                    
+                                    setTimeout(() => {
+                                        bar.style.width = width;
+                                    }, 50);
+                                }, index * 100);
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            // 观察所有需要动画的元素
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // 回到顶部按钮
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 添加导航高亮
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function highlightNavOnScroll() {
+                let scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightNavOnScroll);
+            highlightNavOnScroll(); // 初始化调用
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- 添加"回到顶部"按钮 -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://cqhui.github.io/2018/07/16/第一篇博客/" data-id="cjjobag620001sus6pyzu8zc3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
+    <!-- 更新JavaScript以移除深色模式功能，只保留语言切换 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 语言切换功能
+            const zhBtn = document.getElementById('zhBtn');
+            const enBtn = document.getElementById('enBtn');
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            zhBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.style.display = '');
+                enElements.forEach(el => el.style.display = 'none');
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            });
+            
+            enBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = '');
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+            });
+            
+            // 滚动监听，高亮当前导航项
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function highlightNav() {
+                let scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightNav);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 初始动画
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/16/hello-world/" class="article-date">
-  <time datetime="2018-07-16T12:27:33.607Z" itemprop="datePublished">2018-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/hello-world/">Hello World</a>
-    </h1>
-  
+    <!-- 更新JavaScript以实现语言切换功能 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 语言切换功能
+            const langToggle = document.getElementById('langToggle');
+            const langDropdown = document.getElementById('langDropdown');
+            const zhBtn = document.getElementById('zhBtn');
+            const enBtn = document.getElementById('enBtn');
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            // 点击地球图标显示/隐藏语言选项
+            langToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langDropdown.classList.toggle('show');
+            });
+            
+            // 点击页面其他地方关闭语言下拉菜单
+            document.addEventListener('click', function() {
+                langDropdown.classList.remove('show');
+            });
+            
+            // 防止点击下拉菜单内部时关闭菜单
+            langDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // 中文选项点击事件
+            zhBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.style.display = '');
+                enElements.forEach(el => el.style.display = 'none');
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                langDropdown.classList.remove('show');
+            });
+            
+            // 英文选项点击事件
+            enBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = '');
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+                langDropdown.classList.remove('show');
+            });
+            
+            // 滚动监听，高亮当前导航项
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function highlightNav() {
+                let scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        const currentLanguage = zhBtn.classList.contains('active') ? 'lang-zh' : 'lang-en';
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId && link.classList.contains(currentLanguage)) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightNav);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 移动端菜单切换
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinksContainer = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('active');
+            });
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cqhui.github.io/2018/07/16/hello-world/" data-id="cjjobag5w0000sus6ynzlei0h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/07/20/alfred制作oss图床(python)/">alfred实现oss图床（python）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/16/第一篇博客/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/16/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Chen qihui<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
+            // 初始应用当前语言设置
+            if (zhBtn.classList.contains('active')) {
+                zhElements.forEach(el => el.style.display = '');
+                enElements.forEach(el => el.style.display = 'none');
+            } else if (enBtn.classList.contains('active')) {
+                zhElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = '');
+            }
+        });
+    </script>
 </body>
-</html>
+</html> 

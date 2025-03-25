@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈启辉 - 个人简历 | Chen Qihui - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a66c2;
+            --secondary-color: #445566;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --border-color: #dddddd;
+            --hover-color: #f0f7ff;
+            --dark-mode-bg: #1a1a1a;
+            --dark-mode-card: #2d2d2d;
+            --dark-mode-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans SC", "Roboto", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a73e8 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+
+        .profile-info h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .profile-info .basic-info {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Navigation Styles */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            background: var(--card-background);
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--hover-color);
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 30px;
+            margin-bottom: 20px;
+            background: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--hover-color);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .skill-details {
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 2px solid white;
+        }
+
+        .experience-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--hover-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Project Section */
+        .project-card {
+            background: var(--hover-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--dark-mode-text);
+        }
+
+        body.dark-mode .container {
+            background: var(--dark-mode-card);
+        }
+
+        body.dark-mode .section {
+            background: var(--dark-mode-card);
+        }
+
+        body.dark-mode .nav-bar {
+            background: var(--dark-mode-card);
+            border-color: #444;
+        }
+
+        body.dark-mode .skill-card,
+        body.dark-mode .experience-item,
+        body.dark-mode .project-card {
+            background: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-controls {
+                margin-top: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--card-background);
+                padding: 10px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .experience-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .company-logo {
+                margin: 10px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Company Info Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Loading Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), #1a73e8);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h1>陈启辉</h1>
+                        <div class="basic-info">
+                            男｜1995｜杭州余杭区｜党员 | 手机/微信：13588307742 ｜ 邮箱：zjhzcqh@163.com｜<a href="https://github.com/CQHui" target="_blank" style="color: white;">Github</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <button class="control-btn" id="lang-toggle">
+                        <i class="fas fa-globe"></i>
+                        <span>English</span>
+                    </button>
+                    <button class="control-btn" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <span>深色模式</span>
+                    </button>
+                    <button class="control-btn" id="download-btn">
+                        <i class="fas fa-download"></i>
+                        <span>下载PDF</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="#education" class="nav-link">教育经历</a>
+                <a href="#skills" class="nav-link">技能清单</a>
+                <a href="#experience" class="nav-link">工作经历</a>
+                <a href="#projects" class="nav-link">项目经历</a>
+                <a href="#about" class="nav-link">个人评价</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Chinese Version -->
+            <div id="zh-version">
+                <!-- Education Section -->
+                <section id="education" class="section fade-in">
+                    <h2>教育经历</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <p>2013.09—2017.6    浙江科技⼤学 | 理学院 | 信息与计算科学      本科</p>
+                            <ul>
+                                <li>在校⼤学⽣综合测评成绩专业前15% ，多次获得奖学金，参与学生会，支教等经历</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills" class="section fade-in">
+                    <h2>技能清单</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-title">计算机基础</div>
+                            <div class="skill-details">熟练掌握数据结构，常见算法，网络基础、操作系统等</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">Java开发</div>
+                            <div class="skill-details">基础语法，Lambda表达式，多线程，设计模式，Spring框架，具备 JVM 调优和问题排查经验</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">开发工具</div>
+                            <div class="skill-details">Maven, Git, Kibana, Grafana, JMeter等工具，熟悉阿里云平台各组件应用</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">数据库</div>
+                            <div class="skill-details">MySQL, PostgreSQL, Redis, InfluxDB, ClickHouse等</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">分布式系统</div>
+                            <div class="skill-details">微服务架构，缓存架构，消息队列任务处理，限流，熔断等</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">大模型技术</div>
+                            <div class="skill-details">熟悉Spring AI，LangChain4j⼤模型框架，了解RAG，Function Calling以及MCP等使用</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">其他技能</div>
+                            <div class="skill-details">熟悉Linux命令，Web基础语⾔，了解Golang，Python等语法</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Work Experience Section -->
+                <section id="experience" class="section fade-in">
+                    <h2>工作经历</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="experience-item">
+                                <div class="experience-content">
+                                    <div class="job-title"><strong>菜鸟（2023.11 - 2025.02）</strong></div>
+                                    <ul>
+                                        <li>负责构建全球人事系统，推动人事组织主数据模块全球化改造，支持欧美亚太地区多地业务</li>
+                                        <li>负责组织职岗主数据维护，包括日需开发，系统性能优化，提高单测，加强监控等</li>
+                                    </ul>
+                                </div>
+                                <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" alt="Cainiao Logo" class="company-logo" data-company="cainiao">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="experience-item">
+                                <div class="experience-content">
+                                    <div class="job-title"><strong>极氪（2023.05 - 2023.11）</strong></div>
+                                    <ul>
+                                        <li>开发维护国内车辆数据平台，提升数据服务和诊断能力</li>
+                                        <li>设计国际化版本的数据平台方案，落地支持欧洲地区车辆数据平台</li>
+                                    </ul>
+                                </div>
+                                <img src="https://companieslogo.com/img/orig/ZK-8dcd94cb.png?t=1720244494" alt="Zeekr Logo" class="company-logo" data-company="zeekr">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="experience-item">
+                                <div class="experience-content">
+                                    <div class="job-title"><strong>CISCO（2019.06 - 2023.01）</strong></div>
+                                    <ul>
+                                        <li>参与Webex Files等多个微服务的功能迭代和稳定性维护</li>
+                                        <li>设计开发FeMO对象迁移编排系统，提供和支持内部数据迁移服务</li>
+                                    </ul>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Cisco_logo-1000px.png" alt="CISCO Logo" class="company-logo" data-company="cisco">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="experience-item">
+                                <div class="experience-content">
+                                    <div class="job-title"><strong>绿城中国（2017.08 - 2019.05）</strong></div>
+                                    <ul>
+                                        <li>负责"绿城+"APP问卷调查，报名系统等社区活动等功能开发</li>
+                                        <li>负责"智慧社区"项目大屏数据展示开发，app端用户模块，设备中心等功能开发</li>
+                                    </ul>
+                                </div>
+                                <img src="https://logo9.net/userfiles/images/9GREENTOWN.jpg" alt="Greentown Logo" class="company-logo" data-company="greentown">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="section fade-in">
+                    <h2>项目经历</h2>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <strong>菜鸟全球HRG⼯作台（2023.11 - 2025.02）</strong>
+                            <span>Java高级开发工程师</span>
+                        </div>
+                        <p><strong>项目描述</strong>：参与从0到1打造菜鸟全球⼈事系统，开发菜鸟⼈事组织主数据模块出海，建⽴北美，欧洲，新加坡三地数据中⼼，⽀持⼈事业务在美德法英西波泰马菲等多个地区顺利展开</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">SpringBoot</span>
+                            <span class="tech-tag">HSF</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">MetaQ</span>
+                        </div>
+                        <p><strong>个人职责</strong>：</p>
+                        <ol>
+                            <li><strong>系统全球化改造</strong>：设计并实现业务层解耦方案，通过配置化装配Bean支持不同地区的业务需求，减少新市场开发成本，加速全球业务扩展。</li>
+                            <li><strong>数据与消息同步机制</strong>：建立了海内外数据及消息同步机制，利用阿里DTS任务和定时脚本确保数据的一致性和及时更新，同时保障合规性。</li>
+                            <li><strong>多时区处理策略</strong>：实现了针对逻辑时间和固定日期的多时区处理策略，数据库中使用时间戳存储，并根据用户所在时区动态转换显示，提高用户体验。</li>
+                            <li><strong>权限框架优化</strong>：构建了高效的权限管理框架，通过切面技术进行权限判断和过滤，支持子部门权限控制，并封装成注解简化开发流程。</li>
+                        </ol>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <strong>极氪车辆数据平台（2023.05 - 2023.11）</strong>
+                            <span>Java高级开发工程师</span>
+                        </div>
+                        <p><strong>项目描述</strong>：车端数据平台基于极氪车端所有上报的海量ecu数据，提供M241查询，导出，可视化等能⼒，以及车辆远程诊断等功能，⾯向于车端⼯程师对车辆数据查询分析</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">SpringBoot</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">ClickHouse</span>
+                            <span class="tech-tag">Kafka</span>
+                        </div>
+                        <p><strong>个人职责</strong>：</p>
+                        <ol>
+                            <li><strong>国际化数据平台的设计与实现</strong>：主导了数据平台的国际化方案设计，包括支持多语言响应、多时区数据查询导出及跨区域数据安全访问。开发并部署了车辆数据平台的欧洲版本，同时优化了数据查询和导出逻辑，显著提升了用户体验和系统效率。</li>
+                            <li><strong>用户模块集成与系统优化</strong>：通过开发user SDK实现了吉利多用户平台的高效集成，降低了项目接入成本，并增强了用户权限管理。引入了多服务日志追踪ID和线程池报警策略，提高了系统的故障排查能力和稳定性，确保了系统的高性能运行。</li>
+                        </ol>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <strong><a href="https://www.webex.com/suite/messaging.html">Webex</a>（2019.06 - 2023.01）</strong>
+                            <span>Java高级开发工程师</span>
+                        </div>
+                        <p><strong>项目描述</strong>：Webex旨在为企业和个人提供高质量的视频会议、在线会议、屏幕共享及消息文件传递服务。</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">SpringBoot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <p><strong>个人职责</strong>：</p>
+                        <ol>
+                            <li><strong>微服务开发与维护</strong>：负责Content Service中多个微服务（Thunder、Files、Avatar、Client-Logs、FeMO）的日常开发和维护工作，包括文件的安全扫描、转码预览、上传下载管理、头像管理和客户端日志管理等功能的设计实现。</li>
+                            <li><strong>系统优化与安全增强</strong>：补充测试用例以提升代码覆盖率，优化系统如负责定时删除过期日志的任务设计，分页查询增强，优化卡死线程监控，处理OOM等线上异常，增强了系统的稳定性和安全性。</li>
+                            <li><strong>数据迁移与工具开发</strong>：设计并开发了Federation Migration Orchestrator，支持微服务数据迁移工作流的编排，通过设计SDK简化了众多微服务的数据迁移流程，有效减少了团队开发时间和成本。</li>
+                            <li><strong>线上服务运维</strong>：参与周期性的Oncall任务，确保线上服务的安全稳定运行，及时响应并解决突发问题，保障服务质量。</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="section fade-in">
+                    <h2>个人评价</h2>
+                    <div class="project-card">
+                        <ol>
+                            <li><strong>持续学习</strong>：自我驱动学习，热爱阅读技术书籍并整理实践demo；热爱开源，获得Github"Arctic Code Vault Contributor"，通过阿里巴巴编码规范认证。</li>
+                            <li><strong>认真生活，快乐工作</strong>：待人友善，喜欢旅游、爬山、游泳、电影和美食等，保持积极乐观的生活态度。对技术充满热情，勇于尝试新技术并深入钻研解决问题。</li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+
+            <!-- English Version -->
+            <div id="en-version" class="hidden">
+                <!-- Similar structure as Chinese version but with English content -->
+                <!-- ... English content ... -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Company Info Modal -->
+    <div class="modal" id="company-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Company Information
+        const companyInfo = {
+            cainiao: {
+                title: "菜鸟网络科技有限公司",
+                content: "菜鸟网络是阿里巴巴集团旗下的物流科技公司，致力于打造全球领先的智慧物流网络。公司通过技术创新，提供智能物流解决方案，推动物流行业的数字化转型。"
+            },
+            zeekr: {
+                title: "极氪智能科技",
+                content: "极氪是吉利控股集团旗下的高端智能电动汽车品牌，致力于打造全球领先的智能电动汽车。公司专注于技术创新和用户体验，推动汽车行业的智能化发展。"
+            },
+            cisco: {
+                title: "思科系统公司",
+                content: "思科是全球领先的网络解决方案提供商，专注于网络设备、软件和服务。公司提供企业级网络解决方案，包括网络基础设施、安全、协作和云服务等。"
+            },
+            greentown: {
+                title: "绿城中国控股有限公司",
+                content: "绿城中国是中国领先的房地产开发商之一，专注于高品质住宅和商业地产的开发。公司致力于打造宜居社区，推动房地产行业的可持续发展。"
+            }
+        };
+
+        // DOM Elements
+        const langToggle = document.getElementById('lang-toggle');
+        const themeToggle = document.getElementById('theme-toggle');
+        const downloadBtn = document.getElementById('download-btn');
+        const zhVersion = document.getElementById('zh-version');
+        const enVersion = document.getElementById('en-version');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navToggle = document.querySelector('.nav-toggle');
+        const companyLogos = document.querySelectorAll('.company-logo');
+        const modal = document.getElementById('company-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.querySelector('.close-modal');
+        const progressBar = document.querySelector('.progress-bar');
+
+        // Language Toggle
+        langToggle.addEventListener('click', () => {
+            const isEnglish = zhVersion.classList.contains('hidden');
+            zhVersion.classList.toggle('hidden');
+            enVersion.classList.toggle('hidden');
+            langToggle.querySelector('span').textContent = isEnglish ? 'English' : '中文';
+            document.documentElement.lang = isEnglish ? 'zh-CN' : 'en-US';
+        });
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.querySelector('span').textContent = isDark ? '浅色模式' : '深色模式';
+            themeToggle.querySelector('i').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        });
+
+        // Navigation
+        navToggle.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Company Logo Click
+        companyLogos.forEach(logo => {
+            logo.addEventListener('click', () => {
+                const company = logo.getAttribute('data-company');
+                const info = companyInfo[company];
+                modalTitle.textContent = info.title;
+                modalContent.textContent = info.content;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Close Modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.transform = `scaleX(${scrolled / 100})`;
+        });
+
+        // Intersection Observer for Fade-in Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Download PDF
+        downloadBtn.addEventListener('click', () => {
+            // Implement PDF download functionality
+            alert('PDF下载功能正在开发中...');
+        });
+    </script>
+</body>
+</html>
+
