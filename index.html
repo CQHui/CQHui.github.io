@@ -1074,7 +1074,7 @@
         /* 工作经历部分 */
         .experience-section {
             padding: 80px 0;
-            background-color: var(--background-color);
+            background-color: #f8f9fb;
         }
 
         .experience-timeline {
@@ -1082,20 +1082,19 @@
         }
 
         .experience-card {
-            background-color: var(--card-background);
+            position: relative;
+            margin-bottom: 30px;
+            margin-left: 20px;
+            padding: 20px 25px;
+            background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 20px;
-            transition: var(--transition);
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
         }
 
         .experience-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .experience-info-wrapper {
@@ -1667,10 +1666,11 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background: white;
-            border: 3px solid;
-            top: 20px;
-            z-index: 2;
+            background-color: rgba(30, 75, 156, 0.75); /* 调浅工作经历时间轴点的颜色 */
+            position: absolute;
+            left: -8px;
+            top: 15px;
+            z-index: 10;
         }
 
         .experience-card:nth-child(odd) .timeline-dot {
@@ -1766,6 +1766,74 @@
         .experience-card:nth-child(even) {
             margin-left: auto;
             margin-right: 0;
+        }
+
+        /* 首页按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .hero-btn {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+        }
+
+        .hero-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 75, 156, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(30, 75, 156, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* 工作经历按钮样式，使用较浅的蓝色 */
+        .work-history-btn {
+            background-color: rgba(30, 75, 156, 0.85);
+            color: white;
+            border: none;
+        }
+
+        .work-history-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .timeline-content .company-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(30, 75, 156, 0.85); /* 调浅公司名称颜色 */
+            display: block;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -2165,10 +2233,30 @@
                             <div class="skill-content">
                                 <h3 class="skill-title">Computer Science</h3>
                                 <ul class="skill-list">
-                                    <li>Proficient in data structures and algorithms</li>
-                                    <li>Skilled in computer network fundamentals</li>
-                                    <li>Understanding of operating system principles</li>
-                                    <li>Strong problem-solving abilities</li>
+                                    <li>
+                                        <span>Data Structures & Algorithms</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 90%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Computer Networks</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 85%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Operating Systems</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 80%;"></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Problem Solving</span>
+                                        <div class="skill-progress-bar">
+                                            <div class="skill-progress" style="width: 95%;"></div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -2181,24 +2269,90 @@
                             <div class="skill-content">
                                 <h3 class="skill-title">Java Core</h3>
                                 <ul class="skill-list">
-                                    <li>Proficient in Java syntax</li>
-                                    <li>Deep understanding of collections, generics, concurrency</li>
+                                    <li>Proficient in Java basic syntax</li>
+                                    <li>Deep understanding of collections, generics, multithreading</li>
                                     <li>Mastery of Lambda expressions, Stream API</li>
+                                    <li>Familiar with design patterns, experienced in JVM tuning</li>
                                 </ul>
                             </div>
                         </div>
                         
-                        <!-- Spring Framework -->
+                        <!-- Development Tools -->
                         <div class="skill-card animate-on-scroll">
                             <div class="skill-icon">
-                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-tools"></i>
                             </div>
                             <div class="skill-content">
-                                <h3 class="skill-title">Spring Framework</h3>
+                                <h3 class="skill-title">Development Tools</h3>
                                 <ul class="skill-list">
-                                    <li>Expert in Spring Core, Spring MVC</li>
-                                    <li>Familiar with Spring Boot auto-configuration</li>
-                                    <li>Proficient in Spring Cloud microservices</li>
+                                    <li>Proficient with Maven, Git version control</li>
+                                    <li>Mastery of Kibana, Grafana monitoring tools</li>
+                                    <li>Proficient in JMeter performance testing</li>
+                                    <li>Familiar with Alibaba Cloud platform components</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Database -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Database</h3>
+                                <ul class="skill-list">
+                                    <li>Proficient in MySQL, PostgreSQL</li>
+                                    <li>Mastery of Redis cache design</li>
+                                    <li>Knowledge of InfluxDB time series database</li>
+                                    <li>Familiar with ClickHouse columnar storage database</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Distributed Systems -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Distributed Systems</h3>
+                                <ul class="skill-list">
+                                    <li>Familiar with microservice architecture principles</li>
+                                    <li>Mastery of cache architecture design</li>
+                                    <li>Familiar with message queue task processing</li>
+                                    <li>Knowledge of rate limiting, circuit breaking technology</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Large Language Models -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Large Language Models</h3>
+                                <ul class="skill-list">
+                                    <li>Familiar with Spring AI, LangChain4j frameworks</li>
+                                    <li>Knowledge of RAG (Retrieval Augmented Generation)</li>
+                                    <li>Mastery of Function Calling techniques</li>
+                                    <li>Knowledge of MCP (Multi-model Cooperation Paradigm)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Other Skills -->
+                        <div class="skill-card animate-on-scroll">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Other Skills</h3>
+                                <ul class="skill-list">
+                                    <li>Familiar with Linux commands</li>
+                                    <li>Mastery of web fundamental languages</li>
+                                    <li>Knowledge of Golang, Python syntax</li>
+                                    <li>Familiar with Spring framework ecosystem</li>
                                 </ul>
                             </div>
                         </div>
@@ -2208,135 +2362,134 @@
         </section>
 
         <!-- 工作经历部分 - 替换为新的时间轴结构 -->
-        <div id="experience" class="experience-section">
-            <div class="section-title">
-                <h2 class="lang-zh">工作经历</h2>
-                <h2 class="lang-en" style="display: none;">Work Experience</h2>
-            </div>
-            
-            <div class="experience-timeline">
-                <!-- 中心时间轴线 -->
-                <div class="timeline-center"></div>
-                
-                <div class="lang-zh">
-                    <!-- 菜鸟 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <span class="company-name">菜鸟</span>
-                            <span class="company-period">2023.11 - 2025.02</span>
-                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                                <div style="flex: 1;">
-                                    <ul style="padding-left: 20px; line-height: 1.5;">
-                                        <li>负责构建全球人事系统，推动人事组织主数据模块全球化改造，支持欧美亚太地区多地业务</li>
-                                        <li>负责组织职岗主数据维护，包括日需开发，系统性能优化，提高单测，加强监控等</li>
-                                    </ul>
-                                </div>
-                                <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
-                                    alt="Cainiao Logo" 
-                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
-                            </div>
-                        </div>
-                    </div>
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title lang-zh">工作经历</h2>
+                <h2 class="section-title lang-en" style="display: none;">Work Experience</h2>
                     
-                    <!-- 极氪 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <span class="company-name">极氪</span>
-                            <span class="company-period">2023.05 - 2023.11</span>
-                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                                <div style="flex: 1;">
-                                    <ul style="padding-left: 20px; line-height: 1.5;">
-                                        <li>开发维护国内车辆数据平台，提升数据服务和诊断能力</li>
-                                        <li>设计国际化版本的数据平台方案，落地支持欧洲地区车辆数据平台</li>
-                                    </ul>
-                                </div>
-                                <img src="https://companieslogo.com/img/orig/ZK-8dcd94cb.png?t=1720244494" 
-                                    alt="Zeekr Logo" 
-                                    style="max-width:50px; max-height:50px; object-fit: contain; margin-left: 15px;" />
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- CISCO -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <span class="company-name">CISCO</span>
-                            <span class="company-period">2019.06 - 2023.01</span>
-                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                                <div style="flex: 1;">
-                                    <ul style="padding-left: 20px; line-height: 1.5;">
-                                        <li>参与Webex Files等多个微服务的功能迭代和稳定性维护</li>
-                                        <li>设计开发FeMO对象迁移编排系统，提供和支持内部数据迁移服务</li>
-                                    </ul>
-                                </div>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Cisco_logo-1000px.png" 
-                                    alt="CISCO Logo" 
-                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 绿城中国 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <span class="company-name">绿城中国</span>
-                            <span class="company-period">2017.08 - 2019.05</span>
-                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                                <div style="flex: 1;">
-                                    <ul style="padding-left: 20px; line-height: 1.5;">
-                                        <li>负责"绿城+"APP问卷调查，报名系统等社区活动等功能开发</li>
-                                        <li>负责"智慧社区"项目大屏数据展示开发，app端用户模块，设备中心等功能开发</li>
-                                    </ul>
-                                </div>
-                                <img src="https://logo9.net/userfiles/images/9GREENTOWN.jpg" 
-                                    alt="Greentown Logo" 
-                                    style="max-width:70px; max-height:70px; object-fit: contain; margin-left: 15px;" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 英文部分 -->
-                <div class="lang-en" style="display: none;">
-                    <!-- 菜鸟 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <span class="company-name">Cainiao</span>
-                            <span class="company-period">2023.11 - 2025.02</span>
-                            <div style="display: flex; align-items: flex-start; justify-content: space-between;">
-                                <div style="flex: 1;">
-                                    <ul style="padding-left: 20px; line-height: 1.5;">
-                                        <li>Responsible for building global HR system, promoting the global transformation of HR organization master data module to support business across Europe, America, and Asia-Pacific regions</li>
-                                        <li>In charge of organizational position master data maintenance, including daily development, system performance optimization, improving unit tests, and enhancing monitoring</li>
-                                    </ul>
-                                </div>
-                                <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
-                                    alt="Cainiao Logo" 
-                                    style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 极氪 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-year">2023</div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <div>
-                                <strong>Zeekr (2023.05 - 2023.11)</strong>
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="experience-timeline">
+                    <!-- 中心时间轴线 -->
+                    <div class="timeline-center"></div>
+                        
+                    <div class="lang-zh">
+                        <!-- 菜鸟 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">菜鸟</span>
+                                <span class="company-period">2023.11 - 2025.02</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
                                     <div style="flex: 1;">
-                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
+                                            <li>负责构建全球人事系统，推动人事组织主数据模块全球化改造，支持欧美亚太地区多地业务</li>
+                                            <li>负责组织职岗主数据维护，包括日需开发，系统性能优化，提高单测，加强监控等</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
+                                        alt="Cainiao Logo" 
+                                        style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- 极氪 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">极氪</span>
+                                <span class="company-period">2023.05 - 2023.11</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
+                                            <li>开发维护国内车辆数据平台，提升数据服务和诊断能力</li>
+                                            <li>设计国际化版本的数据平台方案，落地支持欧洲地区车辆数据平台</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://companieslogo.com/img/orig/ZK-8dcd94cb.png?t=1720244494" 
+                                        alt="Zeekr Logo" 
+                                        style="max-width:50px; max-height:50px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- CISCO -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">CISCO</span>
+                                <span class="company-period">2019.06 - 2023.01</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
+                                            <li>参与Webex Files等多个微服务的功能迭代和稳定性维护</li>
+                                            <li>设计开发FeMO对象迁移编排系统，提供和支持内部数据迁移服务</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Cisco_logo-1000px.png" 
+                                        alt="CISCO Logo" 
+                                        style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- 绿城中国 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">绿城中国</span>
+                                <span class="company-period">2017.08 - 2019.05</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
+                                            <li>负责"绿城+"APP问卷调查，报名系统等社区活动等功能开发</li>
+                                            <li>负责"智慧社区"项目大屏数据展示开发，app端用户模块，设备中心等功能开发</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://logo9.net/userfiles/images/9GREENTOWN.jpg" 
+                                        alt="Greentown Logo" 
+                                        style="max-width:70px; max-height:70px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <!-- 英文部分 -->
+                    <div class="lang-en" style="display: none;">
+                        <!-- 菜鸟 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">Cainiao</span>
+                                <span class="company-period">2023.11 - 2025.02</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
+                                            <li>Responsible for building global HR system, promoting the global transformation of HR organization master data module to support business across Europe, America, and Asia-Pacific regions</li>
+                                            <li>In charge of organizational position master data maintenance, including daily development, system performance optimization, improving unit tests, and enhancing monitoring</li>
+                                        </ul>
+                                    </div>
+                                    <img src="https://photos.prnasia.com/prnk/20181029/2282155-1logo" 
+                                        alt="Cainiao Logo" 
+                                        style="max-width:60px; max-height:60px; object-fit: contain; margin-left: 15px;" />
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- 极氪 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">Zeekr</span>
+                                <span class="company-period">2023.05 - 2023.11</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                                    <div style="flex: 1;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
                                             <li>Developed and maintained domestic vehicle data platform, enhancing data services and diagnostic capabilities</li>
                                             <li>Designed internationalized data platform solutions and implemented support for European vehicle data platform</li>
                                         </ul>
@@ -2347,18 +2500,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- CISCO -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-year">2019</div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <div>
-                                <strong>CISCO (2019.06 - 2023.01)</strong>
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                            
+                        <!-- CISCO -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">CISCO</span>
+                                <span class="company-period">2019.06 - 2023.01</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
                                     <div style="flex: 1;">
-                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
                                             <li>Participated in feature iteration and stability maintenance of multiple microservices including Webex Files</li>
                                             <li>Designed and developed FeMO object migration orchestration system, providing and supporting internal data migration services</li>
                                         </ul>
@@ -2369,18 +2521,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- 绿城中国 -->
-                    <div class="experience-card animate-on-scroll">
-                        <div class="timeline-year">2017</div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <div>
-                                <strong>Greentown China (2017.08 - 2019.05)</strong>
-                                <div style="display: flex; align-items: center; justify-content: space-between;">
+                            
+                        <!-- 绿城中国 -->
+                        <div class="experience-card animate-on-scroll">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-content">
+                                <span class="company-name">Greentown China</span>
+                                <span class="company-period">2017.08 - 2019.05</span>
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between;">
                                     <div style="flex: 1;">
-                                        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.5;">
+                                        <ul style="padding-left: 20px; line-height: 1.5;">
                                             <li>Responsible for developing "Greentown+" APP features including surveys, registration systems, and community activities</li>
                                             <li>Led development of data visualization for "Smart Community" project, as well as app user modules and device center features</li>
                                         </ul>
@@ -2394,7 +2545,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- 项目经历部分 -->
         <section id="projects" class="projects-section" style="padding: 80px 0; background-color: #f0f2f5;">
@@ -2511,6 +2662,58 @@
                                 </ul>
                             </div>
                         </div>
+                        
+                        <!-- 项目2 - Zeekr Vehicle Data Platform -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">Zeekr Vehicle Data Platform</h3>
+                                <span class="project-period">May 2023 - Nov 2023</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>The vehicle data platform processes massive ECU data reported from Zeekr vehicles, providing M241 query, export, visualization capabilities, and remote diagnostic functions for vehicle engineers to analyze vehicle data.</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">ClickHouse</span>
+                                        <span class="tech-tag">Kafka</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>International data platform design and implementation: Led the design of the data platform's internationalization solution, including support for multi-language responses, multi-timezone data queries and exports, and cross-region secure data access</li>
+                                    <li>Developed and deployed the European version of the vehicle data platform, while optimizing data query and export logic, significantly improving user experience and system efficiency</li>
+                                    <li>User module integration and system optimization: Developed user SDK to efficiently integrate Geely's multi-user platform, reduced project onboarding costs, and enhanced user permission management</li>
+                                    <li>Introduced multi-service log tracking IDs and thread pool alarm strategies, improved system fault troubleshooting capabilities and stability, ensuring high-performance operation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目3 - Webex Microservices -->
+                        <div class="project-card animate-on-scroll">
+                            <div class="project-header">
+                                <h3 class="project-title">Webex Microservices</h3>
+                                <span class="project-period">Jun 2019 - Jan 2023</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-description">
+                                    <p>Webex aims to provide high-quality video conferencing, online meetings, screen sharing, and messaging file transfer services for enterprises and individuals.</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-tag">SpringBoot</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">Redis</span>
+                                        <span class="tech-tag">Kafka</span>
+                                        <span class="tech-tag">Docker</span>
+                                    </div>
+                                </div>
+                                <ul class="project-achievements">
+                                    <li>Microservice development and maintenance: Responsible for daily development and maintenance of multiple microservices in Content Service (Thunder, Files, Avatar, Client-Logs, FeMO), including design and implementation of file security scanning, transcoding preview, upload/download management, avatar management, and client log management</li>
+                                    <li>System optimization and security enhancement: Added test cases to improve code coverage, optimized systems such as scheduled tasks for deleting expired logs, enhanced paginated queries, optimized stuck thread monitoring, and handled OOM and other online exceptions</li>
+                                    <li>Data migration and tool development: Designed and developed Federation Migration Orchestrator to support microservice data migration workflow orchestration, simplified the data migration process for numerous microservices through SDK design</li>
+                                    <li>Online service operations: Participated in periodic Oncall tasks, ensuring the security and stability of online services, promptly responding to and resolving emergent issues to guarantee service quality</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2574,8 +2777,8 @@
                                 <div class="interest-item animate-on-scroll">
                                     <div class="interest-icon"><i class="fas fa-code"></i></div>
                                     <div class="interest-content">
-                                        <h4>开源贡献</h4>
-                                        <p>业余时间参与开源项目，分享技术心得</p>
+                                        <h4>编码人生</h4>
+                                        <p>热爱编程，开源整理学习知识，分享技术心得</p>
                                     </div>
                                 </div>
                             </div>
@@ -2634,8 +2837,8 @@
                                 <div class="interest-item animate-on-scroll">
                                     <div class="interest-icon"><i class="fas fa-code"></i></div>
                                     <div class="interest-content">
-                                        <h4>Open Source</h4>
-                                        <p>Participate in open source projects in spare time and share technical insights</p>
+                                        <h4>Coding Life</h4>
+                                        <p>Love programming, open-source organization of learning materials, sharing technical insights</p>
                                     </div>
                                 </div>
                             </div>
